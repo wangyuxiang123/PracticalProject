@@ -1,19 +1,12 @@
 package Dao;
 
-import java.util.List;
-
 public class Book {
     private String bookName;
     private int bookId;
     private String bookPrice;
     private String bookPress;
     public Book(){
-        BookDao dao=new BookDao();
-        List<Book> list= dao.list();
-        System.out.println("ID\t书名\t价格\t出版社");
-        for (Book bookList:list){
-            System.out.println(" "+bookList.getBookId()+"       "+bookList.getBookName()+"        "+bookList.getBookPrice()+"        "+bookList.getBookPress());
-        }
+
     }
 
     public Book(String bookName, String bookPrice, String bookPress) {
@@ -61,5 +54,3 @@ public class Book {
         this.bookPress = bookPress;
     }
 }
-
-
