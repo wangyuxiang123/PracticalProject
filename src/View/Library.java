@@ -81,7 +81,24 @@ public class Library {
 
     //修改图书
     public static void modBook(){
-
+        Scanner sc=new Scanner(System.in);
+        System.out.print("请输入修改图书的编号：");
+        int id=sc.nextInt();
+        System.out.print("请输入图书的书名");
+        Scanner sc1=new Scanner(System.in);
+        String name=sc1.nextLine();
+        System.out.print("请输入图书价格");
+        String price=sc1.nextLine();
+        System.out.print("请输入图书出版社");
+        String press=sc1.nextLine();
+        Book book=new Book(name,id,price,press);
+        BookDao dao=new BookDao();
+        boolean flag = dao.modBook(book);
+        if (flag){
+            System.out.println("修改成功！");
+        }else {
+            System.out.println("修改失败！");
+        }
     }
 
     //删除图书
