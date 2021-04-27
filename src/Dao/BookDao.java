@@ -67,7 +67,26 @@ public class BookDao {
 
     //添加图书
     public boolean addBook(Book book){
-
+        String sql="insert ignore into books(id,name,price,press) values(?,?,?,?)";
+        try {
+            conn= DBUtils.getConn();
+            pst=conn.prepareStatement(sql);
+            pst.setInt(1,book.getBookId());
+            pst.setString(2,book.getBookName());
+            pst.setString(3,book.getBookPrice());
+            pst.setString(4,book.getBookPress());
+            int i = pst.executeUpdate();
+            if(i == 1) {
+                return true;
+            }else {
+                return false;
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }finally {
+            DBUtils.close(pst,conn,res);
+        }
+        return true;
     }
 
     //修改图书

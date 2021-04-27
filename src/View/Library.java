@@ -76,7 +76,29 @@ public class Library {
 
     //添加图书
     public static void addBook(){
-
+        Scanner sc=new Scanner(System.in);
+        String name,price,press;
+        int id;
+        System.out.print("请输入添加图书的编号:");
+        id=sc.nextInt();
+        System.out.print("请输入图书书名:");
+        Scanner sc1=new Scanner(System.in);
+        name=sc1.nextLine();
+        System.out.print("请输入图书价格:");
+        price=sc1.nextLine();
+        if(!price.contains("￥")){
+            price = price+"￥";
+        }
+        System.out.print("请输入图书出版社:");
+        press=sc1.nextLine();
+        Book book = new Book(name, id, price, press);
+        BookDao dao=new BookDao();
+        boolean flag = dao.addBook(book);
+        if (flag){
+            System.out.println("保存成功！");
+        }else{
+            System.out.println("保存失败！");
+        }
     }
 
     //修改图书
