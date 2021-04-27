@@ -117,7 +117,23 @@ public class BookDao {
 
     //删除图书
     public boolean delBook(int id){
-
+        String sql="delete  from books where id=?";
+        try {
+            conn= DBUtils.getConn();
+            pst=conn.prepareStatement(sql);
+            pst.setInt(1,id);
+            int i = pst.executeUpdate();
+            if(i == 1) {
+                return true;
+            }else {
+                return false;
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }finally {
+            DBUtils.close(pst,conn,res);
+        }
+        return true;
     }
 }
 
