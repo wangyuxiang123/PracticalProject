@@ -85,7 +85,7 @@ public class BookDao {
             pst=conn.prepareStatement(sql);
             pst.setInt(1,id);
             int i = pst.executeUpdate();
-            if(i == 0) {
+            if(i == 1) {
                 return true;
             }else {
                 return false;
