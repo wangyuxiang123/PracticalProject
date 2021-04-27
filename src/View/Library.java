@@ -53,7 +53,12 @@ public class Library {
 
     //查看图书
     public static void scanBooks(){
-
+        BookDao dao=new BookDao();
+        List<Book> list= dao.list();
+        System.out.println("ID\t书名\t价格\t出版社");
+        for (Book bookList:list){
+            System.out.println(" "+bookList.getBookId()+"       "+bookList.getBookName()+"        "+bookList.getBookPrice()+"        "+bookList.getBookPress());
+        }
     }
 
     //推荐图书
