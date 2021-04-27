@@ -58,7 +58,13 @@ public class Library {
 
     //推荐图书
     public void recBook(){
-
+        BookDao dao=new BookDao();
+        List<Book> list= dao.list();
+        System.out.println("ID\t书名\t价格\t出版社");
+        Random random = new Random();
+        int n = random.nextInt(list.size());
+        Book book = list.get(n);
+        System.out.println(book.getBookId()+"        "+book.getBookName()+"        "+book.getBookPrice()+"        "+book.getBookPress());
     }
     //模糊查询图书
     public static void selBook(){
