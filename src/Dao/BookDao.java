@@ -16,7 +16,26 @@ public class BookDao {
 
     //查看图书
     public List<Book> list(){
-
+        List<Book> list=new ArrayList<Book>();
+        String sql="select * from books";
+        try {
+            conn= DBUtils.getConn();
+            pst=conn.prepareStatement(sql);
+            res=pst.executeQuery();
+            while (res.next()){
+                Book book=new Book();
+                book.setBookId(res.getInt("id"));
+                book.setBookName(res.getString("name"));
+                book.setBookPrice(res.getString("price"));
+                book.setBookPress(res.getString("press"));
+                list.add(book);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }finally {
+            DBUtils.close(pst,conn,res);
+        }
+        return list;
     }
 
     //查询图书
