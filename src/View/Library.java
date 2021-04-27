@@ -103,7 +103,16 @@ public class Library {
 
     //删除图书
     public static void delBook(){
-
+        Scanner sc=new Scanner(System.in);
+        System.out.print("请输入删除图书的编号：");
+        int delID =sc.nextInt();
+        BookDao dao=new BookDao();
+        boolean flag = dao.delBook(delID);
+        if (flag){
+            System.out.println("删除成功！");
+        }else {
+            System.out.println("删除失败！");
+        }
     }
 }
 
