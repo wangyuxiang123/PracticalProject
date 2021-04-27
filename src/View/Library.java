@@ -62,7 +62,16 @@ public class Library {
     }
     //模糊查询图书
     public static void selBook(){
-
+        BookDao dao=new BookDao();
+        List<Book> listsel= dao.listsel();
+        if(listsel.isEmpty()){
+            System.out.println("查无此书");
+            return;
+        }
+        System.out.println("ID\t书名\t价格\t出版社");
+        for (Book bookList:listsel){
+            System.out.println(" "+bookList.getBookId()+"       "+bookList.getBookName()+"        "+bookList.getBookPrice()+"        "+bookList.getBookPress());
+        }
     }
 
     //添加图书
