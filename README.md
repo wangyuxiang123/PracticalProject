@@ -1,4 +1,5 @@
 # 项目说明文档
+```
 .
 ├── mysql-connector-java-8.0.21.jar  	//驱动
 ├── out
@@ -28,7 +29,9 @@
     │   └── DBUtils.java   //连接数据库
     └── View			   //显示
         └── Library.java   //菜单以及对List操作
-
+```
 # 项目启动说明
+```
 Main.java
-spyder.py（可能需要python环境和一些库，浏览器驱动已经包含）
+spyder.py //可能需要python环境和一些库，浏览器驱动已经包含
+```
